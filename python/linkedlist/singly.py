@@ -1,9 +1,8 @@
 class SinglyNode:
-    _next = None
-    value = None
 
     def __init__(self, value):
         self.value = value
+        self._next = None
 
     def __str__(self):
         return '%s' % str(self.value)
@@ -13,7 +12,9 @@ class SinglyNode:
 
 
 class SinglyLinkedList:
-    head = None
+
+    def __init__(self, node=None):
+        self.head = node
 
     def __len__(self):
         return sum(1 for i in self)
