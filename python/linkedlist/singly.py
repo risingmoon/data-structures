@@ -28,13 +28,13 @@ class SinglyLinkedList:
     def __str__(self):
         return ', '.join(str(n) for n in self)
 
-    def add_first(self, node):
+    def prepend(self, node):
         if self.head is None:
             self.head = node
         else:
             node._next, self.head = self.head, node
 
-    def add_last(self, node):
+    def append(self, node):
         if self.head is None:
             self.head = node
         else:
