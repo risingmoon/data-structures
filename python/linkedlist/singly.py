@@ -1,4 +1,4 @@
-class Node:
+class SinglyNode:
     _next = None
     value = None
 
@@ -9,10 +9,10 @@ class Node:
         return '%s' % str(self.value)
 
     def __repr__(self):
-        return '<Node:%s>' % str(self)
+        return '<SinglyNode:%s>' % str(self)
 
 
-class LinkedList:
+class SinglyLinkedList:
     head = None
 
     def __len__(self):
