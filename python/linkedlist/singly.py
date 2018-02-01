@@ -2,7 +2,7 @@ class SinglyNode:
 
     def __init__(self, value):
         self.value = value
-        self._next = None
+        self.next = None
 
     def __str__(self):
         return '%s' % str(self.value)
@@ -15,6 +15,7 @@ class SinglyLinkedList:
 
     def __init__(self, node=None):
         self.head = node
+        self.tail = node
 
     def __len__(self):
         return sum(1 for i in self)
@@ -23,7 +24,7 @@ class SinglyLinkedList:
         node = self.head
         while node:
             yield node
-            node = node._next
+            node = node.next
 
     def __str__(self):
         return ', '.join(str(n) for n in self)
@@ -38,14 +39,13 @@ class SinglyLinkedList:
     def prepend(self, node):
         if self.head is None:
             self.head = node
+            self.tail = node
         else:
-            node._next, self.head = self.head, node
+            node.next, self.head = self.head, node
 
     def append(self, node):
         if self.head is None:
             self.head = node
+            self.tail = node
         else:
-            for n in self:
-                pass
-            else:
-                n._next = node
+            self.tail.next, self.tail = node, node
