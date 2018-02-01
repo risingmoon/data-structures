@@ -33,8 +33,15 @@ class SinglyLinkedList:
         for n in self:
             if n is node:
                 return n
+        raise LookupError("Node cannot be found")
+
+    def __delitem__(self, node):
+        for n in self:
+            if n.next is node:
+                n.next = n.next.next
+                break
         else:
-            raise LookupError("Node cannot be found")
+            raise KeyError("Node cannot be found")
 
     def prepend(self, node):
         if self.head is None:
