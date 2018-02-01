@@ -28,6 +28,13 @@ class SinglyLinkedList:
     def __str__(self):
         return ', '.join(str(n) for n in self)
 
+    def __getitem__(self, node):
+        for n in self:
+            if n is node:
+                return n
+        else:
+            raise LookupError("Node cannot be found")
+
     def prepend(self, node):
         if self.head is None:
             self.head = node
