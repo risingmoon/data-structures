@@ -30,18 +30,18 @@ class SinglyLinkedListTestCase(TestCase):
     def test_getitem_valid_list_get_existing_node_is_found(self):
         node_int = self.nodes[1]
 
-        self.assertIs(self.linkedlist[node_int], node_int)
+        self.assertIs(self.linkedlist[node_int.value], node_int)
 
     def test_getitem_valid_list_get_nonexistent_node_raises_exception(self):
         node = SinglyNode(None)
 
-        self.assertRaises(LookupError, self.linkedlist.__getitem__, node)
+        self.assertRaises(LookupError, self.linkedlist.__getitem__, node.value)
 
     def test_delitem_valid_list_delete_node_removes_node(self):
         node_int = self.nodes[1]
         nodes = [self.nodes[0], self.nodes[2]]
 
-        del self.linkedlist[node_int]
+        del self.linkedlist[node_int.value]
 
         for key, value in zip(self.linkedlist, nodes):
             self.assertIs(key, value)

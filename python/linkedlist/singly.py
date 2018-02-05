@@ -29,21 +29,23 @@ class SinglyLinkedList:
     def __str__(self):
         return ', '.join(str(n) for n in self)
 
-    def __getitem__(self, node):
+    def __getitem__(self, value):
         for n in self:
-            if n is node:
+            if n.value == value:
                 return n
         raise LookupError("Node cannot be found")
 
-    def __delitem__(self, node):
+    def __delitem__(self, value):
         for n in self:
-            if n.next is node:
+            if n.next and n.next.value == value:
                 n.next = n.next.next
+                n.next.next = None
                 break
         else:
             raise KeyError("Node cannot be found")
 
     def __reversed__(self):
+        """Reverse linkedlist non-recursively"""
         node = self.head
         next_node = node.next
         while next_node:
@@ -56,15 +58,19 @@ class SinglyLinkedList:
         self.tail.next = None
 
     def prepend(self, node):
+        """Insert to head with O(1) complexity"""
         if self.head is None:
             self.head = node
             self.tail = node
         else:
-            node.next, self.head = self.head, node
+            node.next = self.head
+            self.head = node
 
     def append(self, node):
+        """Insert to tail with O(1) complexity"""
         if self.head is None:
             self.head = node
             self.tail = node
         else:
-            self.tail.next, self.tail = node, node
+            self.tail.next = node
+            self.tail = node
