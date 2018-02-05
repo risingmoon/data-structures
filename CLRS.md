@@ -85,7 +85,7 @@ Implement a queue by singly linked list L. The operations ENQUEUE and DEQUEUE sh
 
 ###### 10.2-4
 
-As written, each loop iteration in the LIST-SEarch' procedure requries two tests: one fo x != L.nil and one for x.key != k. Show how to elminate the test for x != L.nil in each iteration.
+As written, each loop iteration in the LIST-Search' procedure requries two tests: one fo x != L.nil and one for x.key != k. Show how to elminate the test for x != L.nil in each iteration.
 
 ###### 10.2-5
 
@@ -93,7 +93,7 @@ Implement the dictionary operations INSERT, DELETE, and SEARCH using singly link
 
 ###### 10.2-6
 
-The dynamic-set operation Union takes two disjoint sets S_1 and S_2 as input, and it returns a set S = S_1 U S_2, consisting of all the elements of S_1 and S_2. The sets S_1 and S_2 are usugly destroyed by the operation. Show how to support UNION in O(1) time using a suitable list data structure.
+The dynamic-set operation Union takes two disjoint sets S_1 and S_2 as input, and it returns a set S = S_1 U S_2, consisting of all the elements of S_1 and S_2. The sets S_1 and S_2 are usually destroyed by the operation. Show how to support UNION in O(1) time using a suitable list data structure.
 
 ###### 10.2-7
 
