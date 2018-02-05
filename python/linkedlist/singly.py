@@ -43,6 +43,18 @@ class SinglyLinkedList:
         else:
             raise KeyError("Node cannot be found")
 
+    def __reversed__(self):
+        node = self.head
+        next_node = node.next
+        while next_node:
+            next_next_node = next_node.next
+            next_node.next = node
+            node = next_node
+            next_node = next_next_node
+
+        self.head, self.tail = self.tail, self.head
+        self.tail.next = None
+
     def prepend(self, node):
         if self.head is None:
             self.head = node

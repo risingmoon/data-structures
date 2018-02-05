@@ -51,6 +51,12 @@ class SinglyLinkedListTestCase(TestCase):
 
         self.assertRaises(KeyError, self.linkedlist.__delitem__, node)
 
+    def test_reversed_valid_list_reverses_nodes(self):
+        reversed(self.linkedlist)
+
+        for key, value in zip(self.linkedlist, reversed(self.nodes)):
+            self.assertIs(key, value)
+
     def test_prepend_empty_list_prepend_node_is_head(self):
         node_string = SinglyNode('head')
         linkedlist = SinglyLinkedList()
