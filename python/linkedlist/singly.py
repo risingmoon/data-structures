@@ -13,6 +13,15 @@ class SinglyNode(Node):
 
 class SinglyLinkedList(LinkedList):
 
+    def __delitem__(self, node):
+        for n in self:
+            if n.next is node:
+                n.next = n.next.next
+                n.next.next = None
+                break
+        else:
+            raise KeyError("Node cannot be found")
+
     def __reversed__(self):
         """Reverse singly linkedlist non-recursively"""
         node = self.head

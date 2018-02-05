@@ -30,12 +30,3 @@ class LinkedList:
             if n.value == value:
                 return n
         raise LookupError("Node cannot be found")
-
-    def __delitem__(self, value):
-        for n in self:
-            if n.next and n.next.value == value:
-                n.next = n.next.next
-                n.next.next = None
-                break
-        else:
-            raise KeyError("Node cannot be found")

@@ -41,7 +41,7 @@ class SinglyLinkedListTestCase(TestCase):
         node_int = self.nodes[1]
         nodes = [self.nodes[0], self.nodes[2]]
 
-        del self.linkedlist[node_int.value]
+        del self.linkedlist[node_int]
 
         for key, value in zip(self.linkedlist, nodes):
             self.assertIs(key, value)
