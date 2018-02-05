@@ -2,13 +2,7 @@ from linkedlist import Node, LinkedList
 
 
 class SinglyNode(Node):
-
-    def __init__(self, value):
-        super().__init__(value)
-        self.next = None
-
-    def __str__(self):
-        return '%s' % str(self.value)
+    pass
 
 
 class SinglyLinkedList(LinkedList):
