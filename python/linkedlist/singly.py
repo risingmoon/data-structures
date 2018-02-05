@@ -7,11 +7,31 @@ class SinglyNode(Node):
 
 class SinglyLinkedList(LinkedList):
 
+    @staticmethod
+    def search(cls, linkedlist, value):
+        return linkedlist[value]
+
+    @staticmethod
+    def insert(cls, linkedlist, node):
+        linkedlist.prepend(node)
+
+    @staticmethod
+    def delete(cls, linkedlist, node):
+        del linkedlist[node]
+
     def __delitem__(self, node):
         for n in self:
+            if node is self.head:
+                if self.head.next is None:
+                    self.tail = None
+                self.head = self.head.next
+                break
             if n.next is node:
                 n.next = n.next.next
-                n.next.next = None
+                if n.next is not None:
+                    n.next.next = None
+                else:
+                    self.tail = n
                 break
         else:
             raise KeyError("Node cannot be found")

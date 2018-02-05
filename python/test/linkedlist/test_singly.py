@@ -46,6 +46,22 @@ class SinglyLinkedListTestCase(TestCase):
         for key, value in zip(self.linkedlist, nodes):
             self.assertIs(key, value)
 
+    def test_delitem_valid_list_delete_head_replaces_head(self):
+        del self.linkedlist[self.nodes[0]]
+        self.assertIs(self.linkedlist.head, self.nodes[1])
+
+    def test_delitem_valid_list_delete_all_empties_list(self):
+        for n in self.nodes:
+            del self.linkedlist[n]
+
+        self.assertIsNone(self.linkedlist.head)
+        self.assertIsNone(self.linkedlist.tail)
+
+    def test_delitem_valid_list_delete_tail_replaces_tail(self):
+        del self.linkedlist[self.nodes[2]]
+
+        self.assertIs(self.linkedlist.tail, self.nodes[1])
+
     def test_delitem_valid_list_delete_non_existent_node_raises_keyerror(self):
         node = SinglyNode('nonexistent')
 
