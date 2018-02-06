@@ -167,3 +167,42 @@ class SinglyLinkedListTestCase(TestCase):
 
         del self.linkedlist[self.nodes[0]]
         self.assertIs(self.linkedlist.head, self.nodes[1])
+
+
+class StackTestCase(TestCase):
+
+    def test_init_empty_stack_top_is_none(self):
+        pass
+
+    def test_push_valid_stack_adds_node(self):
+        pass
+
+    def test_pop_empty_stack_raises_underflowerror(self):
+        pass
+
+    def test_pop_valid_stack_removes_node(self):
+        pass
+
+    def test_pop_valid_stack_removes_all_top_is_none(self):
+        pass
+
+
+class QueueTestCase(TestCase):
+
+    def test_init_empty_queue_head_and_tail_is_none(self):
+        pass
+
+    def test_enqueue_empty_queue_enqueue_head_and_tail_same_node(self):
+        pass
+
+    def test_enqueue_valid_queue_enqueue_adds_node_to_tail(self):
+        pass
+
+    def test_dequeue_empty_queue_raises_underflowerror(self):
+        pass
+
+    def test_dequeue_valid_queue_removes_node(self):
+        pass
+
+    def test_dequeue_valid_queue_removes_all_head_and_tail_is_none(self):
+        pass
