@@ -1,6 +1,10 @@
 from linkedlist import Node, LinkedList
 
 
+class UnderflowError(ArithmeticError):
+    pass
+
+
 class SinglyNode(Node):
     pass
 
@@ -62,3 +66,47 @@ class SinglyLinkedList(LinkedList):
         else:
             self.tail.next = node
             self.tail = node
+
+
+class Stack(LinkedList):
+    """
+    Exercise 10.2-2
+
+    Implement a stack with singly linked list
+    """
+
+    def push(self, node):
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            node.next = self.head
+            self.head = node
+
+    def pop(self):
+        if self.head is not None:
+            node = self.head
+            self.head = self.head.next
+            return node
+        raise UnderflowError("Stack Underflow")
+
+
+class Queue(LinkedList):
+    """
+    Exercise 10.2-3
+
+    Implement a queue with singly linked list
+    """
+
+    def enqueue(self, node):
+        if self.head is None:
+            self.head = node
+            self.tail = node
+        else:
+            self.tail.next = node
+            self.tail = node
+
+    def dequeue(self):
+        node = self.head
+        self.head = self.head.next
+        return node
