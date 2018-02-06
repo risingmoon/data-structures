@@ -75,18 +75,26 @@ class Stack(LinkedList):
     Implement a stack with singly linked list
     """
 
+    def __init__(self, node=None):
+        self.top = node
+
+    def __iter__(self):
+        node = self.top
+        while node:
+            yield node
+            node = node.next
+
     def push(self, node):
-        if self.head is None:
-            self.head = node
-            self.tail = node
+        if self.top is None:
+            self.top = node
         else:
-            node.next = self.head
-            self.head = node
+            node.next = self.top
+            self.top = node
 
     def pop(self):
-        if self.head is not None:
-            node = self.head
-            self.head = self.head.next
+        if self.top is not None:
+            node = self.top
+            self.top = self.top.next
             return node
         raise UnderflowError("Stack Underflow")
 

@@ -1,6 +1,7 @@
 from unittest import TestCase
 
-from linkedlist.singly import SinglyNode, SinglyLinkedList
+from linkedlist.singly import SinglyNode, SinglyLinkedList, Stack, Queue
+from linkedlist.singly import UnderflowError
 
 
 class SinglyNodeTestCase(TestCase):
@@ -171,20 +172,49 @@ class SinglyLinkedListTestCase(TestCase):
 
 class StackTestCase(TestCase):
 
+    def setUp(self):
+        self.nodes = [SinglyNode(x) for x in range(10)]
+        self.stack = Stack()
+        for n in self.nodes:
+            self.stack.push(n)
+
     def test_init_empty_stack_top_is_none(self):
-        pass
+        stack = Stack()
+
+        self.assertIsNone(stack.top)
+        self.assertEqual(len(stack), 0)
 
     def test_push_valid_stack_adds_node(self):
-        pass
+        node = SinglyNode(10)
+        self.stack.push(node)
+
+        nodes = self.nodes + [node]
+
+        for n, s in zip(reversed(nodes), self.stack):
+            self.assertIs(n, s)
+        self.assertEqual(len(self.stack), 11)
 
     def test_pop_empty_stack_raises_underflowerror(self):
-        pass
+        stack = Stack()
+
+        with self.assertRaises(UnderflowError):
+            stack.pop()
 
     def test_pop_valid_stack_removes_node(self):
-        pass
+        node = self.stack.pop()
+
+        self.assertIs(node, self.nodes[9])
+        for n, s in zip(self.stack, reversed(self.nodes[:9])):
+            self.assertIs(n, s)
+
+        self.assertEqual(len(self.stack), 9)
 
     def test_pop_valid_stack_removes_all_top_is_none(self):
-        pass
+        for i in range(10):
+            self.stack.pop()
+
+        self.assertIsNone(self.stack.top)
+        self.assertEqual(len(self.stack), 0)
 
 
 class QueueTestCase(TestCase):
