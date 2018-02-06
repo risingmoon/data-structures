@@ -184,6 +184,15 @@ class StackTestCase(TestCase):
         self.assertIsNone(stack.top)
         self.assertEqual(len(stack), 0)
 
+    def test_push_empty_stack_top_is_node(self):
+        node = SinglyNode(0)
+        stack = Stack()
+
+        stack.push(node)
+
+        self.assertIs(stack.top, node)
+        self.assertEqual(len(stack), 1)
+
     def test_push_valid_stack_adds_node(self):
         node = SinglyNode(10)
         self.stack.push(node)
@@ -219,20 +228,52 @@ class StackTestCase(TestCase):
 
 class QueueTestCase(TestCase):
 
-    def test_init_empty_queue_head_and_tail_is_none(self):
-        pass
+    def setUp(self):
+        self.nodes = [SinglyNode(x) for x in range(10)]
+        self.queue = Queue()
+        for n in self.nodes:
+            self.queue.enqueue(n)
 
-    def test_enqueue_empty_queue_enqueue_head_and_tail_same_node(self):
-        pass
+    def test_init_empty_queue_head_and_tail_is_none(self):
+        queue = Queue()
+
+        self.assertIsNone(queue.head)
+        self.assertIsNone(queue.tail)
+        self.assertEqual(len(queue), 0)
+
+    def test_enqueue_empty_queue__head_and_tail_same_node(self):
+        node = SinglyNode(0)
+        queue = Queue()
+        queue.enqueue(node)
+
+        self.assertIs(queue.head, node)
+        self.assertIs(queue.tail, node)
+        self.assertEqual(len(queue), 1)
 
     def test_enqueue_valid_queue_enqueue_adds_node_to_tail(self):
-        pass
+        node = SinglyNode(10)
+        self.queue.enqueue(node)
+
+        self.assertIs(self.queue.tail, node)
+        self.assertIs(self.queue.head, self.nodes[0])
 
     def test_dequeue_empty_queue_raises_underflowerror(self):
-        pass
+        queue = Queue()
+
+        with self.assertRaises(UnderflowError):
+            queue.dequeue()
 
     def test_dequeue_valid_queue_removes_node(self):
-        pass
+        node = self.queue.dequeue()
+
+        self.assertIs(node, self.nodes[0])
+        self.assertIs(self.queue.tail, self.nodes[9])
+        self.assertEqual(len(self.queue), 9)
 
     def test_dequeue_valid_queue_removes_all_head_and_tail_is_none(self):
-        pass
+        for i in range(10):
+            self.queue.dequeue()
+
+        self.assertIsNone(self.queue.head)
+        self.assertIsNone(self.queue.tail)
+        self.assertEqual(len(self.queue), 0)

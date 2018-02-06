@@ -115,6 +115,10 @@ class Queue(LinkedList):
             self.tail = node
 
     def dequeue(self):
-        node = self.head
-        self.head = self.head.next
-        return node
+        if self.head is not None:
+            node = self.head
+            self.head = self.head.next
+            if self.head is None:
+                self.tail = None
+            return node
+        raise UnderflowError("Queue Underflow")
