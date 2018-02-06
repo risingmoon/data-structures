@@ -8,6 +8,22 @@
 
 ### 10 Elementary Data Structures
 
+#### 10.1 Stacks and Queues
+
+Stack-Empty(S)
+```
+if S.top == 0
+    return True
+else
+    return False
+```
+
+Push(S, x)
+```
+S.top = s.top + 1
+S[S.top] = x
+```
+
 #### 10.2 Linked List
 
 ##### Common Operations
@@ -75,7 +91,7 @@ Can you implement the dynamic-set operation INSERT on a singly linked list in O(
 
 ###### 10.2-2
 
-Implement a stack using linked list L. The operations PUSH and POP should still take O(1) time.
+Implement a stack by using a singly linked list L. The operations PUSH and POP should still take O(1) time.
 
 ###### 10.2-3
 
@@ -83,7 +99,7 @@ Implement a queue by singly linked list L. The operations ENQUEUE and DEQUEUE sh
 
 ###### 10.2-4
 
-As written, each loop iteration in the LIST-Search' procedure requries two tests: one fo x != L.nil and one for x.key != k. Show how to elminate the test for x != L.nil in each iteration.
+As written, each loop iteration in the LIST-Search' procedure requries two tests: one for x != L.nil and one for x.key != k. Show how to elminate the test for x != L.nil in each iteration.
 
 ###### 10.2-5
 
