@@ -180,6 +180,8 @@ Q: The dynamic-set operation Union takes two disjoint sets S_1 and S_2 as input,
 
 Q: Give a O(n)-time nonrecursive procedure that reverse a singly linked list of _n_ elements. The procedure should use no more than constant storage beyond that needed for the list itself.
 
+A: See reversed method in SinglyListNode in singly.py
+
 #### 10.2-8
 
-Q: Explain how to implement doubly linked list s using only one pointer value _x_, _np_ per item instead o the usualy two (_next_ and _prev_). Assume that all pointer values can be interpreted as k-bit integers, and define _x_, _np_ to be _x.np = x.next XOR x.prev_, the k-bit "exclusive-or" of _x.next_ and _x.prev_. (The value NIL is represented by 0). Be sure to describe  what information you need to acess the head of the list. Show how to implement the SEARCH, INSERT, and DELETE operations on such a list. Also show how to reverse such a list in O(1) time.
+Q: Explain how to implement doubly linked list s using only one pointer value _x_, _np_ per item instead o the usualy two (_next_ and _prev_). Assume that all pointer values can be interpreted as k-bit integers, and define _x_, _np_ to be _x.np = x.next XOR x.prev_, the k-bit "exclusive-or" of _x.next_ and _x.prev_. (The value NIL is represented by 0). Be sure to describe  what information you need to access the head of the list. Show how to implement the SEARCH, INSERT, and DELETE operations on such a list. Also show how to reverse such a list in O(1) time.
