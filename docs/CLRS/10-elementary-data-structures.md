@@ -2,6 +2,7 @@
 
 ## 10.1 Stacks and Queues
 
+### Stacks
 Stack-Empty(S)
 ```
 if S.top == 0
@@ -15,6 +16,63 @@ Push(S, x)
 S.top = s.top + 1
 S[S.top] = x
 ```
+
+Pop(S, x)
+```
+if STACK-EMPTY(S):
+    error "underflow"
+else S.top = S.top - 1
+    return S[S.top +1]
+```
+
+### Queues
+
+Enqueue(Q, x)
+```
+Q[Q.tail] = x
+if Q.tail == Q.length
+    Q.tail = 1
+else Q.tail = Q.tail + 1
+```
+
+Dequeue(Q)
+```
+x = Q[Q.head]
+if Q.head == Q.length
+    Q.head = 1
+else Q.head == Q.head + 1
+return x
+```
+
+### Exercises
+
+#### 10.1-1
+
+Using Figure 10.1 as a model, illustrate the result of each operation in the squence PUSH(S, 4), PUSH(S, 1), PUSH(S, 3), POP(S), PUSH(S, 8), and POP(S) on an initially empty stack S stored in array S[1..6].
+
+#### 10.1-2
+
+Explain how to implement two stacks in one array A[1..n] in such a way that neither stack overflows unlses the total number of elements in both stacks together is n. The PUSH and POP operations should run in O(1) time.
+
+#### 10.1-3
+
+Using Figure 10.2 as a model, illustrate the result of each operation in the sequence ENQUEUE(Q, 4), ENQUEUE(Q, 1), ENQUEUE(Q, 3), DEQUEUE(Q), ENQUEUE(Q, 4), ENQUEUE(Q, 1), ENQUEUE(Q, 3), DEQUEUE(Q), ENQUEUE(Q, 8), and DEQUEUE(Q) on an initially empty queue Q stored in array Q[1..6].
+
+#### 10.1-4
+
+Rewrite ENQUEUE and DEQUEUE to detect underflow and overflow of a queue.
+
+#### 10.1-5
+
+Whereas a stack allows insertion and deletion of elements at only one end, and a queue allows insertion at one end and deletion at the other end, a DEQUE(double-ended queue) allows inseration and deletion at both ends. Write four O(1)-time procedures to insert elements into and delete elemtns from both ends of a deque implemented by an array.
+
+#### 10.1-5
+
+Show how to implement a queue using two stacks. Analyze the running time of the queue operations.
+
+#### 10.1-5
+
+Show how to implement a stack using two queues. Analyze the running time fo the stack operations.
 
 ## 10.2 Linked List
 
