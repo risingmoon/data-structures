@@ -34,3 +34,7 @@ class LinkedList:
             if n.value == value:
                 return n
         raise LookupError("Node cannot be found")
+
+    @staticmethod
+    def search(linkedlist, value):
+        return linkedlist[value]

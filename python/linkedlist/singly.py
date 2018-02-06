@@ -8,15 +8,11 @@ class SinglyNode(Node):
 class SinglyLinkedList(LinkedList):
 
     @staticmethod
-    def search(cls, linkedlist, value):
-        return linkedlist[value]
-
-    @staticmethod
-    def insert(cls, linkedlist, node):
+    def insert(linkedlist, node):
         linkedlist.prepend(node)
 
     @staticmethod
-    def delete(cls, linkedlist, node):
+    def delete(linkedlist, node):
         del linkedlist[node]
 
     def __delitem__(self, node):
@@ -34,7 +30,7 @@ class SinglyLinkedList(LinkedList):
                     self.tail = n
                 break
         else:
-            raise KeyError("Node cannot be found")
+            raise LookupError("Node cannot be found")
 
     def __reversed__(self):
         """Reverse singly linkedlist non-recursively"""
